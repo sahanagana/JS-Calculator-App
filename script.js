@@ -12,7 +12,7 @@ keys.addEventListener('click', e => {
         //if no action, it is a number key, so we need to do something to the display
         if(!action){
             //if the display is 0 or an operator has been pressed just put the number there
-            if(displayText==='0' || previousKeyType ==='operator'){
+            if(displayText==='0' || previousKeyType ==='operator' || previousKeyType ==='calculate'){
                 display.textContent = keyText;
                 console.log(keyText)
             }
@@ -55,6 +55,7 @@ keys.addEventListener('click', e => {
             Array.from(key.parentNode.children).forEach(
                 k => k.classList.remove('is-depressed')
             )
+            calculator.dataset.previousKeyType = 'calculate'
         }
         //remove pressed state from all keys
                
